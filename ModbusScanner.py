@@ -4,12 +4,13 @@ from pymodbus.payload import BinaryPayloadDecoder
 import time
 
 modbus_address = 30001
-
+IP = "192.168.1.100"
+modbus_port = 502
+modbus_device_id = 3
 try:
   global client
-  client = ModbusClient("192.168.100.137", 502, 3)
+  client = ModbusClient(IP, modbus_port, modbus_device_id)
   client.close()
-
   client.open()
 except:
   print("SMA Inverter connection problem")
